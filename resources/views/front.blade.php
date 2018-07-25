@@ -54,7 +54,7 @@
                                     <a style="color: #17a2b8" href="https://www.linkedin.com/in/ssparg/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
                                 </li>
                                 <li>
-                                    <a style="color: #17a2b8" href="https://www.linkedin.com/in/ssparg/" target="_blank"><i class="fab fa-git-square fa-2x"></i></a>
+                                    <a style="color: #17a2b8" href="https://github.com/shauns2007" target="_blank"><i class="fab fa-git-square fa-2x"></i></a>
                                 </li>
                             </ul>
                         </div>
