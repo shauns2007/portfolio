@@ -1,4 +1,4 @@
-<ul class="clearfix">
+<ul class="clearfix project-list">
     @if ($projects->count())
         @foreach ($projects as $project)
         <li>
@@ -9,12 +9,14 @@
                     @endif
                 @endforeach
             </ul>
-            <article>
+            <article data-id="{{$project->id}}">
                 <img src="{{ asset('storage/'.$project->image_small) }}" class="img-fluid" alt="{{ $project->name }}">
                 <p>{{ $project->name }}</p>
             </article>
         </li>
         @endforeach
+    @else
+        <li class="no-content">No projects have been added yet</li>
     @endif
 </ul>
 {{ $projects->links() }}

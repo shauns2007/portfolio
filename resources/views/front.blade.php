@@ -35,6 +35,7 @@
                     <h6 class="text-center font-italic">Aspiring Mobile Developer</h6>
                 </div>
             </div>
+            <div class="modal"></div>
         </header>
         <main>
             <div class="container">
@@ -58,14 +59,13 @@
                             </ul>
                         </div>
                         <div class="col blob">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin laoreet, diam vitae ultrices varius, est sapien convallis urna, tristique convallis lorem neque et magna. Donec gravida volutpat nibh, eu pretium massa egestas sed. Praesent sit amet tristique eros. Integer sit amet felis congue, lacinia lectus ac, congue turpis. Praesent in metus a purus malesuada volutpat. Praesent fermentum mauris quam, quis scelerisque tellus congue eu. Vestibulum egestas mattis nisi, nec malesuada lorem laoreet sit amet. Donec mattis enim sed leo maximus mollis. Phasellus ultrices elit ut ultricies rhoncus. Maecenas pellentesque facilisis diam, eget semper velit lacinia in. Aenean ultricies pharetra congue. Aenean semper tortor dictum, laoreet quam rhoncus, sodales odio. Nunc convallis, dolor sed hendrerit cursus, libero tellus lacinia augue, in tristique diam est non nulla..</p>
-                            <p>Morbi sollicitudin ullamcorper nulla at euismod. Morbi vel mollis massa, a faucibus tortor. Mauris risus massa, auctor et nunc molestie, porttitor pretium leo. Integer efficitur commodo ipsum a vulputate. Phasellus elementum hendrerit turpis quis pulvinar. Etiam id magna eu purus facilisis pharetra ut sit amet orci. Donec molestie lorem imperdiet urna rutrum.</p>
+                            <p>I started messing around with code in around 2009 and was instantly intrigued by what one could potentially do. I then did a Internet and Web Design course at Unisa. Straight after that I did another course called Developing Web Applications with PHP. I played around after that for about a year just coding small things, I still remember finishing a little blog in Codeigniter and feeling so awesome, sounds silly I know! I then landed a 3 month job at Regis Management Services which I ended up at for 3 years! I did all their intranet stuff and quite a bit of mobile development, initially using PhoneGap but then I went native so I had more access to Androids API's. After a year and at my first performance review, I was promoted. I did most of my web development in Codeigniter as I was fast in it but then I read about Laravel and I have never looked back since.</p>
+                            <p>So after 3 years I left Regis because I needed something fresh and I wanted to learn more. I got a job at Elemental Web Solutions. There I have worked on Wordpress (I won't lie, it's not my favourite) ,Zend, Laravel, Codeigniter and custom frameworks. Adding new and maintaining current client requirements.</p>
                         </div>
                     </div>
                 </section>  <!-- End of about -->
                 <section class="portfolio">
                     <h4>Projects</h4>
-                    <p>Etiam id magna eu purus facilisis pharetra ut sit amet orci. Donec molestie lorem imperdiet urna rutrum...</p>
                     <div class="project-list">
                         @include('project-list')
                     </div>
@@ -78,13 +78,13 @@
                                 <li><div class="circle"></div><div>{{ $courses[$i]->year }} : {{ $courses[$i]->name }}</div></li>
                             @endfor
                         @else
-
+                            <li class="no-content">No courses have been added yet</li>
                         @endif  
                         </ul>
                 </section>
-                <section class="education">
+                {{-- <section class="education">
                     <h4>Education</h4>
-                </section>
+                </section> --}}
                 <section class="skills">
                     <h4>Skills</h4>
                     PHP Web Applications
@@ -106,6 +106,39 @@
                 </section>
                 <section class="experience">
                     <h4>Experience</h4>
+                    <div class="row">
+                        <div class="col">
+                            <div>Elemental Web Solutions</div><span>Mar 2016 - Current</span>
+                            <ul>
+                                <li>Development of Web Applications for clients</li>
+                                <li>Restful API's</li>
+                                <li>Database Design</li>
+                                <li>Maintenance of existing solutions</li>
+                                <li>Adding features to existing solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div>Regis Management</div><span>Dec 2012 - Feb 2016</span>
+                            <ul>
+                                <li>Development of Mobile Applications for clients</li>
+                                <li>Development of Web Applications for clients</li>
+                                <li>Restful API's</li>
+                                <li>Research of possible business solutions</li>
+                                <li>Weekly stats reporting</li>
+                                <li>Database Creation, Queries, Stored Procedures</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div>Cheshire South Africa</div><span>Nov 2011 - Nov 2012</span>
+                            <ul>
+                                <li>I was put in charge of maintaining and updating their joomla website.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </section>
                 <section class="contact">
                     <h4>Contact</h4>
@@ -214,6 +247,28 @@
                     }).fail(function () {
                         alert('Articles could not be loaded.');
                     });
+                });
+
+                $('.project-list').on('click', 'article', function(e){
+                    e.stopPropagation();
+                    var project_id = $(this).attr('data-id');
+                    var url = "<?=url('projects')?>" + '/' + project_id;
+                    $.ajax({
+                        url:url
+                    }).done(function(data){
+                        $('header .modal').html(data);
+                        $('header .modal').show();
+                        $('body').addClass('noscroll');
+                    }).fail(function () {
+                        alert('Project could not be loaded.');
+                    });
+                });
+
+                $('.modal').on('click', '.modal-close-btn', function(e){
+                    e.stopPropagation();
+                    $('header .modal').hide();
+                    $('header .modal').empty();
+                    $('body').removeClass('noscroll');
                 });
             });
         </script>

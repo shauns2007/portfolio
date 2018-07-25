@@ -3,6 +3,9 @@ body {
 	background-color: #eeeeee;
 	color: grey;
 }
+.noscroll {
+    overflow: hidden;
+}
 h4 {
     margin-top: -12px;
     font-size: 1.9em;
@@ -47,7 +50,7 @@ main .container section {
 	padding: 10px;
 }
 main .container section.portfolio {
-	min-height: 410px;
+	min-height: 112px;
 }
 main .container section:last-of-type {
 	margin-bottom: 0px;
@@ -166,6 +169,9 @@ footer p {
 	background-color: #17a2b8;
 	display: inline-block;
 }
+.project-list > li article {
+	cursor: pointer;
+}
 .courses ul li {
 	margin-bottom: 10px;
 }
@@ -180,6 +186,125 @@ footer p {
 	display: block;
 	clear: both;
 	content: "";
+}
+.experience .row .col div {
+	margin: 0 0.5rem 0.5rem 0;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+    font-size: 1.125rem;
+    display: inline-block;
+}
+.experience .row .col span {
+	font-style: italic;
+	font-weight: 600;
+	display: inline-block;
+	color: #17a2b8;
+}
+.experience .row .col ul {
+	margin-left: 0.5rem;
+}
+/* Modal */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 100;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0, 0.4);
+}
+.modal-content {
+	position: relative;
+	background-color: #f5f8fa;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 60%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	-webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+.modal-header {
+	padding: 8px 16px;
+	background-color: #4F4F4F;
+	color: #fff;
+	height: 60px;
+}
+.modal-header > h1 {
+	margin: 0 auto;
+}
+.modal-close {
+	color: #aaa;
+	float: left;
+	font-size: 28px;
+	font-weight: bold;
+}
+.modal-body {
+	padding: 2px 16px;
+	min-height: 100px;
+}
+.modal-footer {
+	padding: 2px 16px;
+	color: #fff;
+	height: 60px;
+}
+.modal-close:hover,
+.modal-close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+.modal-body .project > div {
+	margin-top: 10px;
+	width: 48%;
+}
+.modal-body .project .project-left {
+	float: left;
+	padding: 2%;
+}
+.modal-body .project .project-left img {
+	max-width: 100%;
+}
+.modal-body .project .project-right {
+	float: left;
+	padding: 10px;
+}
+.modal-body .project .project-right > h4 {
+	padding-top: 10px;
+}
+.modal-body .project .project-right > p {
+	text-align: justify;
+}
+.modal-body {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
+@media all and (max-width: 1484px) {
+	.modal-body .project .project-left {
+		float: none;
+		width: 100%;
+		text-align: center;
+	}
+	.modal-body .project .project-right {
+		float: none;
+		width: 100%;
+		text-align: center;
+	}
 }
 @media all and (max-width: 1199px) {
 	.pagination li.page-item .page-link {
@@ -223,5 +348,11 @@ footer p {
 		margin-right: 1%;
 		margin-left: 1%;
 		float: none;
+	}
+}
+@media all and (max-width: 372px) {
+	.experience .row .col p {
+		padding-left: 0;
+
 	}
 }

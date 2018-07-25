@@ -14,6 +14,7 @@
 Route::get('/', 'Front\HomeController@index')->name('front.home');
 
 Route::post('/contact', 'Front\ContactController@create')->name('front.contact');
+Route::get('/projects/{project}', 'Front\ProjectController@view')->name('project.view');
 
 Auth::routes();
 Route::prefix('admin')->middleware(['auth'])->group(function(){
