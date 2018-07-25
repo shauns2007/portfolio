@@ -350,6 +350,15 @@ footer p {
 		float: none;
 	}
 }
+@media all and (max-width: 435px) {
+	.social {
+		margin-top: 100px;
+		margin-right: 155px;
+	}
+	.blob {
+		margin-top: 15px;
+	}
+}
 @media all and (max-width: 372px) {
 	.experience .row .col p {
 		padding-left: 0;
