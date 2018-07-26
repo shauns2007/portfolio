@@ -351,12 +351,9 @@ footer p {
 	}
 }
 @media all and (max-width: 435px) {
-	.social {
-		margin-top: 100px;
-		margin-right: 155px;
-	}
-	.blob {
-		margin-top: 15px;
+	.social ul {
+		margin-left: 19px;
+		float: none;
 	}
 }
 @media all and (max-width: 372px) {
