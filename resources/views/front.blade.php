@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/portfolio.css') }}" rel="stylesheet">
         <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
@@ -35,7 +36,8 @@
                     <h6 class="text-center font-italic">Aspiring Mobile Developer</h6>
                 </div>
             </div>
-            <div class="modal"></div>
+            <div class="modal">
+            </div>
         </header>
         <main>
             <div class="container">
@@ -153,10 +155,7 @@
                                     <input type="email" class="form-control" name="email" placeholder="Enter email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="subject" placeholder="Enter subject">
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" name="message" rows="3"></textarea>
+                                    <textarea class="form-control" name="message" rows="3" placeholder="Enter Message"></textarea>
                                 </div>
                                 <button type="button" class="btn float-right send-email bg-info">Send</button>
                             </form>
@@ -194,11 +193,24 @@
                 }
             }
 
-            $(document).ready(function(){
+            function showLoader() {
+                $('header .modal').html('<div class="lds-dual-ring"></div>');
+                $('header .modal').show();
+            }
 
+            function hideLoader() {
+                $('header .modal').html('');
+                $('header .modal').hide();
+            }
+
+            $(document).ready(function(){
+                $.ajaxSetup({
+                  headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+                });
                 var name = $('input[name="fullname"]');
                 var email = $('input[name="email"]');
-                var subject = $('input[name="subject"]');
                 var msg = $('textarea[name="message"]');
 
                 name.on('keyup', function(){
@@ -209,28 +221,48 @@
                     return countChars($(this));
                 });
 
-                subject.on('keyup', function(){
-                    return countChars($(this));
-                });
-
                 msg.on('keyup', function(){
                     return countChars($(this));
                 });
 
                 $('.send-email').on('click', function(e){
                     e.preventDefault();
-
+                    var pass = true;
                     if (name.val() == '') {
                         name.addClass('error');
-                    }
-                    if (subject.val() == '') {
-                        subject.addClass('error');
+                        pass = false;
                     }
                     if (msg.val() == '') {
                         msg.addClass('error');
+                        pass = false;
                     }
                     if (!validateEmail(email.val())) {
                         email.addClass('error');
+                        pass = false;
+                    }
+
+                    if (pass) {
+                        showLoader();
+                        var url = $(this).closest('form').attr('action');
+                        $.post({
+                            url : url,
+                            data: {
+                                name: name.val(), 
+                                email: email.val(),
+                                msg: msg.val()
+                            }
+                        }).done(function(data){
+                            if(data.success) {
+                                hideLoader();
+                                $('header .modal').html(data.html);
+                                $('header .modal').show();
+                                name.val('');
+                                email.val('');
+                                msg.val('');
+                            }
+                        }).fail(function(){
+                            hideLoader();
+                        });
                     }
                 });
 
@@ -239,12 +271,12 @@
                     var url = $(this).attr('href');
                     $.ajax({
                         url : url  
-                    }).done(function (data) {
+                    }).done(function(data) {
                         $('.project-list').fadeOut(function(){
                             $('.project-list').html(data);
                         });
                         $('.project-list').fadeIn();
-                    }).fail(function () {
+                    }).fail(function() {
                         alert('Articles could not be loaded.');
                     });
                 });

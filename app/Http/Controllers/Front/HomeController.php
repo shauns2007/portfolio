@@ -14,10 +14,10 @@ class HomeController extends Controller
     	$projects = Project::select('id', 'name', 'url', 'image_small')->with('tags')->orderBy('created_at', 'DESC')->paginate(4);
     	
     	if ($request->ajax()) {
-            return view('project-list', compact("projects"))->render();  
+            return view('project-list', compact('projects'))->render();  
         }
 
 		$courses = Course::get();
-    	return view('front', ['projects'=>$projects, 'courses'=>$courses]);
+    	return view('front', compact('projects', 'courses'));
     }
 }
