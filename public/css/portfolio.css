@@ -343,6 +343,9 @@ footer p {
 	.modal-body .project .project-right > p {
 		text-align: center;
 	}
+	.modal {
+		padding-top: 25px; 
+	}
 }
 @media all and (max-width: 1199px) {
 	.pagination li.page-item .page-link {
