@@ -27,7 +27,7 @@
         				<div class="input-group-prepend">
     						<span class="input-group-text">Web Address</span>
   						</div>
-  						<input type="text" class="form-control" name="url" value="{{ old('url') }}" data-validate="url">
+  						<input type="text" class="form-control" name="url" value="{{ old('url') }}">
         			</div>
         			<small class="form-text text-muted">
 	        			@if ($errors->has('url'))
