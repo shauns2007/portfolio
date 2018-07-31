@@ -35,7 +35,7 @@ class CoursesController extends Controller
 
     	$course->tags()->sync($request->tags);
 
-    	return redirect()->route('admin.course.dashboard');
+    	return redirect()->route('admin.courses.dashboard');
     }
 
     public function edit(Course $course)
