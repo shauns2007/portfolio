@@ -27,7 +27,7 @@
         				<div class="input-group-prepend">
     						<span class="input-group-text">Web Address</span>
   						</div>
-  						<input type="text" class="form-control" name="url" value="{{ old('url') }}" data-validate="required|url">
+  						<input type="text" class="form-control" name="url" value="{{ old('url') }}" data-validate="url">
         			</div>
         			<small class="form-text text-muted">
 	        			@if ($errors->has('url'))
@@ -83,7 +83,7 @@
     				</small>
             <input type="hidden" class="form-control" name="completed" value="{{ old('completed') }}">		    
 				</div>
-				 <a href="#" class="btn btn-info btn-lg float-right create-course-btn" data-rel="create">Submit</a>
+				 <a class="btn btn-info btn-lg float-right create-course-btn" data-rel="create">Submit</a>
         	</form>
         </div>
     </div>

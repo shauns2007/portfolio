@@ -354,6 +354,11 @@ footer p {
 		padding-left: 14px;
 	}
 }
+@media all and (max-width: 800px) {
+	.modal-content {
+		width: calc(100% - 40px);
+	}
+}
 @media all and (max-width: 767px) {
 	.portfolio ul li {
 		width: 48%;
@@ -389,6 +394,15 @@ footer p {
 	.social ul {
 		margin-left: 19px;
 		float: none;
+	}
+	.modal-header > h1 {
+		font-size: 1.6rem;
+	}
+	.modal-body .project .project-right > h4 {
+		font-size: 1.5em;
+	}
+	.modal-body .project .project-right > p {
+		text-align: center;
 	}
 }
 @media all and (max-width: 372px) {
