@@ -260,7 +260,7 @@
                                 email.val('');
                                 msg.val('');
                             }
-                        }).error(function(jqXHR, textStatus, errorThrown){
+                        }).fail(function(jqXHR, textStatus, errorThrown){
                             console.log(textStatus);
                             console.log(errorThrown);
                             hideLoader();
