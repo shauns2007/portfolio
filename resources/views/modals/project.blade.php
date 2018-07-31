@@ -18,6 +18,9 @@
                 </ul>
                 <h4>Description</h4>
                 <p>{{$project->description}}</p>
+                @isset($project->url)
+                <p>Click <a href="{{$project->url}}" target="_blank">here</a> to visit the project.</p>
+                @endisset
             </div>
         </div>
     </div>

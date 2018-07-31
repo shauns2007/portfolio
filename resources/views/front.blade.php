@@ -283,15 +283,18 @@
 
                 $('.project-list').on('click', 'article', function(e){
                     e.stopPropagation();
+                    showLoader();
                     var project_id = $(this).attr('data-id');
                     var url = "<?=url('projects')?>" + '/' + project_id;
                     $.ajax({
                         url:url
                     }).done(function(data){
+                        hideLoader();
                         $('header .modal').html(data);
                         $('header .modal').show();
                         $('body').addClass('noscroll');
                     }).fail(function () {
+                        hideLoader();
                         alert('Project could not be loaded.');
                     });
                 });

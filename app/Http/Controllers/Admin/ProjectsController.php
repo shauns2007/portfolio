@@ -83,7 +83,7 @@ class ProjectsController extends Controller
         $file = $request->file('image');
 
         if ($request->has('image')) {
-            if (!$request->file('image')->isValid()) { dd('yp_order(domain, map)');
+            if (!$request->file('image')->isValid()) {
                 return redirect()->route('admin.projects.edit')
                                  ->withErrors(['error'=>'Error uploading file'])
                                  ->withInput();
