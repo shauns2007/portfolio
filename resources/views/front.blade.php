@@ -103,7 +103,7 @@
                     </div>
                     Android Development
                     <div class="progress" style="height: 30px;">
-                      <div class="progress-bar progress-bar-striped progress-bg bg-info" role="progressbar" style="width: 40%;">4/10</div>
+                      <div class="progress-bar progress-bar-striped progress-bg bg-info" role="progressbar" style="width: 30%;">3/10</div>
                     </div>
                 </section>
                 <section class="experience">
