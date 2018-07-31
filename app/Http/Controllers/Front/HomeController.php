@@ -17,7 +17,7 @@ class HomeController extends Controller
             return view('project-list', compact('projects'))->render();  
         }
 
-		$courses = Course::get();
+		$courses = Course::get()->sortBy('year');
     	return view('front', compact('projects', 'courses'));
     }
 }
