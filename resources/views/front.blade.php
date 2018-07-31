@@ -78,7 +78,7 @@
                         @if ($courses->count())
                             @for ($i = 0; $i < $courses->count(); $i++)
 
-                                <li><div class="circle"></div><div>{{ $courses[$i]->year }} : {{ $courses[$i]->name }} <a href="{{ $courses[$i]->url }}">details</a></div></li>
+                                <li><div class="circle"></div><div>{{ $courses[$i]->year }} : {{ $courses[$i]->name }} <a href="{{ $courses[$i]->url }}" target="_blank">details</a></div></li>
                             @endfor
                         @else
                             <li class="no-content">No courses have been added yet</li>
