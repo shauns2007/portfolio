@@ -340,6 +340,9 @@ footer p {
 		width: 100%;
 		text-align: center;
 	}
+	.modal-body .project .project-right > p {
+		text-align: center;
+	}
 }
 @media all and (max-width: 1199px) {
 	.pagination li.page-item .page-link {
