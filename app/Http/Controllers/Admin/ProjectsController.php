@@ -40,7 +40,7 @@ class ProjectsController extends Controller
     	$storePath = storage_path('app/public/'.$path);
 
     	if (!file_exists($storePath)) {
-            mkdir($storePath, 666, true);
+            mkdir($storePath, 777, true);
         }
 
     	$name = str_random(32);
@@ -93,7 +93,7 @@ class ProjectsController extends Controller
             $storePath = storage_path('app/public/'.$path);
             
             if (!file_exists($storePath)) {
-                mkdir($storePath, 666, true);
+                mkdir($storePath, 777, true);
             }
 
             $name = str_random(32);
