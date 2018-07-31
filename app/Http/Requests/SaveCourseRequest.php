@@ -30,7 +30,7 @@ class SaveCourseRequest extends FormRequest
                 'max:64',
                 Rule::unique('courses'),
             ],
-            'url'       => 'required|url',
+            'url'       => 'sometimes|url',
             'tags'      => 'required',
             'completed' => 'required|numeric'
         ];

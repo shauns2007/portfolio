@@ -30,7 +30,7 @@ class UpdateCourseRequest extends FormRequest
                 'max:64',
                 Rule::unique('courses')->ignore($this->route('course')->id),
             ],
-            'url'       => 'required|url',
+            'url'       => 'sometimes|url',
             'tags'      => 'required',
             'completed' => 'required|numeric'
         ];
