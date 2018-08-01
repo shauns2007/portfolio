@@ -259,7 +259,7 @@ footer p {
     animation-duration: 0.4s
 }
 .modal-content.small {
-	width: calc(100% - 40px);
+	width: 60%;
 }
 .modal-content.small .modal-body p {
 	text-align: center;
@@ -415,5 +415,10 @@ footer p {
 	.experience .row .col p {
 		padding-left: 0;
 
+	}
+}
+@media all and (max-width: 340px) {
+	.modal-content.small .modal-body p {
+		font-size: 18px;
 	}
 }
