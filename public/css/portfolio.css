@@ -259,7 +259,7 @@ footer p {
     animation-duration: 0.4s
 }
 .modal-content.small {
-	width: 30%;
+	width: calc(100% - 40px);
 }
 .modal-content.small .modal-body p {
 	text-align: center;
