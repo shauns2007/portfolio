@@ -36,7 +36,7 @@
         <meta name="theme-color" content="#ffffff">
         <title>{{ config('app.name') }}</title>
     </head>
-    <body>
+    <body id="body">
         <header>
             <div class="header-container">
                 <a href="#menu" class="box-shadow-menu"></a> <div class="intro">
@@ -91,12 +91,14 @@
                 </section>  <!-- End of about -->
                 <section class="portfolio" id="portfolio">
                     <h4>Projects</h4>
+                    <a class="top-link" href="#body">top</a>
                     <div class="project-list">
                         @include('project-list')
                     </div>
                 </section>
                 <section class="courses" id="courses">
                     <h4>Courses</h4>
+                    <a class="top-link" href="#body">top</a>
                         <ul>
                         @if ($courses->count())
                             @for ($i = 0; $i < $courses->count(); $i++)
@@ -117,6 +119,7 @@
                 </section> --}}
                 <section class="skills" id="skills">
                     <h4>Skills</h4>
+                    <a class="top-link" href="#body">top</a>
                     PHP Web Applications
                     <div class="progress" style="height: 30px;">
                       <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 60%;">6/10</div>
@@ -136,6 +139,7 @@
                 </section>
                 <section class="experience" id="experience">
                     <h4>Experience</h4>
+                    <a class="top-link" href="#body">top</a>
                     <div class="row">
                         <div class="col">
                             <div>Elemental Web Solutions</div><span>Mar 2016 - Current</span>
@@ -172,6 +176,7 @@
                 </section>
                 <section class="contact" id="contact">
                     <h4>Contact</h4>
+                    <a class="top-link" href="#body">top</a>
                     <div class="row">
                         <div class="col">
                             <form action="{{ route('front.contact') }}" method="POST">
@@ -344,21 +349,31 @@
                   }, 800, function(){
                      window.location.hash = hash;
                 });
-            });            
+            });
+
+            $('.top-link').on('click', function(e){
+                e.preventDefault();           
+                var hash = $(this).attr('href');  
+                  $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 50
+                  }, 800, function(){
+                     window.location.hash = hash;
+                });
+            });          
 
             $('.box-shadow-menu').on('click',function(e){
               if ($('nav').hasClass('open')) {
                 $('nav').removeClass('open');
-              }else {
-                $('nav').addClass('open');              }
-
+              } else {
+                $('nav').addClass('open');              
+             }
             });
             $('nav .close').on('click',function(e){
-              if ($('nav').hasClass('open')) {
-                $('nav').removeClass('open');
-              }else {
-                $('nav').addClass('open');              }
-
+                if ($('nav').hasClass('open')) {
+                    $('nav').removeClass('open');
+                } else {
+                    $('nav').addClass('open');              
+                }
             });
         </script>
     </body>

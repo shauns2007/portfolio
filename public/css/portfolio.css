@@ -492,7 +492,15 @@ nav .close {
 	display: none;
 }
 section {
-	padding: 30px!important;
+	padding: 30px !important;
+	position: relative;
+}
+.top-link {
+	display: block;
+    right: 0;
+    position: absolute;
+    top: 0;
+    padding: 8px;
 }
 @media all and (max-width: 1000px) {
 	header .intro {
