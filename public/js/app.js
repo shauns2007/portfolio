@@ -36002,7 +36002,7 @@ var Validation = function () {
 			// https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url
 			var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
 			var regex = new RegExp(expression);
-			if (el.value.match(expression)) {
+			if (el.value.match(expression) || el.value == '') {
 				return true;
 			}
 			return false;

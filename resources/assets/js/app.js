@@ -15,6 +15,10 @@ $(document).ready(function(){
         }
     });
 
+
+
+
+
     $(document).on('click', '.fa-times', function(){
         let rel = $(this).closest('li').attr('data-value');
         let option = $('select[name="tags[]"]').find('option[value="'+rel+'"]');

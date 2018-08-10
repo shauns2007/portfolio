@@ -1,4 +1,4 @@
-/*#9BC956*/
+/*#17a2b8*/
 body {
 	background-color: #eeeeee;
 	color: grey;
@@ -18,9 +18,12 @@ h4 {
 	padding: 0;
 }
 header {
-	height: 230px;
+	/* height: 230px; */
 	padding-top: 20px;
 	background-color: #4F4F4F;
+}
+.clear{
+	clear: both
 }
 .intro h1 {
     font-weight: 600;
@@ -67,18 +70,17 @@ main .container section p {
 	position: absolute;
 	left: 50%;
 	top: -125px;
-	margin-left: -105px;
 	padding-top: 5px;
 	border-radius:50%;
 	width: 210px;
 	height: 210px;
 	background-color: #fff;
 	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+	transform: translateX(-50%);
 }
 .portfolio-img img {
 	border-radius:50%;
-	width: 200px;
-	height: 200px;
+	width: calc(100% - 10px);
 }
 .social {
 	width: 100%;
@@ -91,7 +93,7 @@ main .container section p {
 	float: right;
 }
 .social ul li {
-	float: left;
+	/* float: left; */
 	margin-right: 1%;
 	margin-left: 1%;
 }
@@ -400,10 +402,18 @@ footer p {
 		float: none;
 	}
 }
+@media all and (max-width: 500px) {
+	.social ul {
+		display: block;
+		float: none;
+		/* margin-top: 50px; */
+		text-align: center;
+	}
+}
 @media all and (max-width: 435px) {
 	.social ul {
-		margin-left: 19px;
-		float: none;
+		/* margin-left: 19px; */
+		/*float: none;*/
 	}
 	.modal-header > h1 {
 		font-size: 1.6rem;
@@ -420,5 +430,136 @@ footer p {
 	.experience .row .col p {
 		padding-left: 0;
 
+	}
+}
+.header-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1140px;		
+}
+.box-shadow-menu {
+  position: relative;
+  padding-left: 1.25em;
+  display: none;
+  /* margin-bottom: 30px; */
+  cursor: pointer;
+  height: 30px;
+}
+.box-shadow-menu:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  width: 22px;
+  height: 3px;
+  background: white;
+  box-shadow: 0 6px 0 0 white, 0 12px 0 0 white;
+}
+
+nav {
+	margin-top: 80px;
+}
+header ul[class*="nav-"]{
+	display: inline-block;
+	width: calc(50% - 4px);
+}
+header ul[class*="nav-"] li{
+	display: inline-block;
+	margin: 0px 20px
+}
+header ul[class*="nav-"] li a:hover{
+	text-decoration: none;
+	color: #17a2b8;
+}header ul[class*="nav-"] li a.active{
+	color: #17a2b8;
+}
+header ul[class*="nav-"] li a{
+	color: #fff;
+}
+header ul.nav-left{
+	float: left;
+	text-align: right;
+	padding-right: 150px;
+}
+header ul.nav-right{
+	float: right;
+	padding-left: 150px;
+}
+nav .close {
+	display: none;
+}
+section {
+	padding: 30px!important;
+}
+@media all and (max-width: 1000px) {
+	header .intro {
+		padding-bottom: 100px;
+	}
+	.box-shadow-menu {
+		display: inline-block;
+	}
+	nav {
+		position: fixed;
+		left: -300px;
+		top: 0;
+		bottom: 0;
+		width: 250px;
+		background-color: #4f4f4f;
+		margin: 0px;
+		/* padding-top: 100px; */
+		z-index: 99;
+		transition: all 1s;
+		-webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.52);
+		-moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.52);
+		box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.52);
+	}
+	nav.open {
+		left: 0;
+	}
+	nav .close {
+		display: block;
+		margin-right: 20px;
+		margin-top: 20px;
+	}
+
+
+	header ul[class*="nav-"]{
+		display: block;
+		width: 100%;
+	}
+
+	header ul[class*="nav-"] li{
+		display: block;
+		margin: 20px 20px
+	}
+	header ul[class*="nav-"] li a:hover{
+		text-decoration: none;
+		color: #17a2b8;
+	}header ul[class*="nav-"] li a.active{
+		color: #17a2b8;
+	}
+	header ul[class*="nav-"] li a{
+		color: #fff;
+	}
+	header ul.nav-left{
+		float: none;
+		text-align: left;
+		margin-top: 50px;
+		padding-right: 0px;
+	}
+	header ul.nav-right{
+		float: none;
+		padding-left: 0px;
+	}
+}
+
+@media all and (max-width: 470px) {
+	.portfolio-img {
+		width: 180px;
+		height:  180px;
+		top: -120px;
 	}
 }

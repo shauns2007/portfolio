@@ -38,19 +38,33 @@
     </head>
     <body>
         <header>
-            <div class="container-fluid">
-                <div class="intro">
+            <div class="header-container">
+                <a href="#menu" class="box-shadow-menu"></a> <div class="intro">
                     <h1 class="text-center text-uppercase">Shaun Sparg</h1>
                     <h4 class="text-center">Web Developer</h4>
                     <h6 class="text-center font-italic">Aspiring Mobile Developer</h6>
                 </div>
+                <nav>
+                    <a class="close">X</a>
+                    <ul class="nav-left">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Projects</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                    </ul>
+                    <ul class="nav-right">
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>    
+                    <div class="clear"></div>
+                </nav>
+            
             </div>
-            <div class="modal">
-            </div>
-        </header>
+            <div class="modal"> </div>
+         </header>
         <main>
             <div class="container">
-                <section class="about">
+                <section class="about" id="about">
                     <div class="row">
                         <div class="col">
                             <div class="portfolio-img">
@@ -75,13 +89,13 @@
                         </div>
                     </div>
                 </section>  <!-- End of about -->
-                <section class="portfolio">
+                <section class="portfolio" id="portfolio">
                     <h4>Projects</h4>
                     <div class="project-list">
                         @include('project-list')
                     </div>
                 </section>
-                <section class="courses">
+                <section class="courses" id="courses">
                     <h4>Courses</h4>
                         <ul>
                         @if ($courses->count())
@@ -101,7 +115,7 @@
                 {{-- <section class="education">
                     <h4>Education</h4>
                 </section> --}}
-                <section class="skills">
+                <section class="skills" id="skills">
                     <h4>Skills</h4>
                     PHP Web Applications
                     <div class="progress" style="height: 30px;">
@@ -120,7 +134,7 @@
                       <div class="progress-bar progress-bar-striped progress-bg bg-info" role="progressbar" style="width: 30%;">3/10</div>
                     </div>
                 </section>
-                <section class="experience">
+                <section class="experience" id="experience">
                     <h4>Experience</h4>
                     <div class="row">
                         <div class="col">
@@ -156,7 +170,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="contact">
+                <section class="contact" id="contact">
                     <h4>Contact</h4>
                     <div class="row">
                         <div class="col">
@@ -319,6 +333,32 @@
                     $('header .modal').empty();
                     $('body').removeClass('noscroll');
                 });
+            });
+
+            $('nav').on('click', 'li a', function(e){
+                e.preventDefault();
+                     $('nav').removeClass('open');            
+                var hash = $(this).attr('href');  
+                  $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 50
+                  }, 800, function(){
+                     window.location.hash = hash;
+                });
+            });            
+
+            $('.box-shadow-menu').on('click',function(e){
+              if ($('nav').hasClass('open')) {
+                $('nav').removeClass('open');
+              }else {
+                $('nav').addClass('open');              }
+
+            });
+            $('nav .close').on('click',function(e){
+              if ($('nav').hasClass('open')) {
+                $('nav').removeClass('open');
+              }else {
+                $('nav').addClass('open');              }
+
             });
         </script>
     </body>
