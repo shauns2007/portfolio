@@ -36,7 +36,7 @@
         <meta name="theme-color" content="#ffffff">
         <title>{{ config('app.name') }}</title>
     </head>
-    <body id="body">
+    <body id="top">
         <header>
             <div class="header-container">
                 <a href="#menu" class="box-shadow-menu"></a> <div class="intro">
@@ -91,14 +91,14 @@
                 </section>  <!-- End of about -->
                 <section class="portfolio" id="portfolio">
                     <h4>Projects</h4>
-                    <a class="top-link" href="#body">top</a>
+                    <a class="top-link" href="#top">top</a>
                     <div class="project-list">
                         @include('project-list')
                     </div>
                 </section>
                 <section class="courses" id="courses">
                     <h4>Courses</h4>
-                    <a class="top-link" href="#body">top</a>
+                    <a class="top-link" href="#top">top</a>
                         <ul>
                         @if ($courses->count())
                             @for ($i = 0; $i < $courses->count(); $i++)
@@ -119,7 +119,7 @@
                 </section> --}}
                 <section class="skills" id="skills">
                     <h4>Skills</h4>
-                    <a class="top-link" href="#body">top</a>
+                    <a class="top-link" href="#top">top</a>
                     PHP Web Applications
                     <div class="progress" style="height: 30px;">
                       <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 60%;">6/10</div>
@@ -139,7 +139,7 @@
                 </section>
                 <section class="experience" id="experience">
                     <h4>Experience</h4>
-                    <a class="top-link" href="#body">top</a>
+                    <a class="top-link" href="#top">top</a>
                     <div class="row">
                         <div class="col">
                             <div>Elemental Web Solutions</div><span>Mar 2016 - Current</span>
@@ -176,7 +176,7 @@
                 </section>
                 <section class="contact" id="contact">
                     <h4>Contact</h4>
-                    <a class="top-link" href="#body">top</a>
+                    <a class="top-link" href="#top">top</a>
                     <div class="row">
                         <div class="col">
                             <form action="{{ route('front.contact') }}" method="POST">
