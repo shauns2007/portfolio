@@ -21,6 +21,9 @@ function returnIcon($name) {
 		case 'HTML':
 			$icon = 'fab fa-html5 fa-2x';
 			break;
+		case 'vuejs':
+			$icon = 'fab fa-vuejs fa-2x';
+			break;
 	}
 
 	return $icon;
