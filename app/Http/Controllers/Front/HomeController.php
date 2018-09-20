@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
     	$projects = Cache::rememberForever('projects', function() {
-            $projects = Project::select('id', 'name', 'url', 'image_small')->with('tags')->orderBy('created_at', 'DESC');
+            $projects = Project::select('id', 'name', 'url', 'image_small')->with('tags')->orderBy('created_at', 'DESC')->get();
             return $projects;
         });
     	
