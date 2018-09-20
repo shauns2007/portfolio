@@ -7,6 +7,7 @@ use Storage;
 use Portfolio\Tag;
 use Portfolio\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Portfolio\Http\Controllers\Controller;
 use Portfolio\Http\Requests\SaveProjectRequest;
 use Portfolio\Http\Requests\UpdateProjectRequest;
@@ -16,7 +17,6 @@ class ProjectsController extends Controller
     public function index()
     {
     	$projects = Project::select('id', 'name', 'url', 'image_small', 'image_medium')->with('tags')->orderBy('created_at', 'DESC')->paginate(12);
-
     	return view('admin.projects.dashboard', compact('projects'));
     }
 
@@ -58,6 +58,9 @@ class ProjectsController extends Controller
 	    	$project->save();
 
 	    	$project->tags()->sync($request->input('tags'));
+
+            //Invalidate cache so new item shows
+            Cache::forget('projects');
 
 	    	return redirect()->route('admin.projects.dashboard');
 
@@ -117,7 +120,8 @@ class ProjectsController extends Controller
 
         $project->save();
         $project->tags()->sync($request->input('tags'));
-        
+        //Invalidate cache so new item shows
+        Cache::forget('projects');
         return redirect()->route('admin.projects.dashboard');
     }
 
@@ -142,6 +146,8 @@ class ProjectsController extends Controller
     public function delete(Project $project)
     {
         $project->delete();
+        //Invalidate cache so new item shows
+        Cache::forget('projects');
         return redirect()->route('admin.projects.dashboard');
     }
 }

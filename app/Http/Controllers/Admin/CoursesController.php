@@ -35,6 +35,9 @@ class CoursesController extends Controller
 
     	$course->tags()->sync($request->tags);
 
+        //Invalidate cache so new item shows
+        Cache::forget('courses');
+
     	return redirect()->route('admin.courses.dashboard');
     }
 
@@ -51,6 +54,8 @@ class CoursesController extends Controller
     	$course->save();
 
     	$course->tags()->sync($request->tags);
+        //Invalidate cache so new item shows
+        Cache::forget('courses');
 
     	return redirect()->route('admin.courses.dashboard');
     }
@@ -58,6 +63,8 @@ class CoursesController extends Controller
     public function delete(Course $course)
     {
     	$course->delete();
+        //Invalidate cache so new item shows
+        Cache::forget('courses');
     	return redirect()->route('admin.courses.dashboard');
     }
 }

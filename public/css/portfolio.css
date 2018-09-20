@@ -571,3 +571,10 @@ section {
 		top: -120px;
 	}
 }
+.play {
+	text-align: center;
+    margin-top: -32px !important;
+    margin-left: -13px !important;
+    cursor: pointer;
+    color: #3BA2B9;
+}

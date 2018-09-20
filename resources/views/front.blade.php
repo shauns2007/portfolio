@@ -70,7 +70,8 @@
                             <div class="portfolio-img">
                                 <img src="{{ asset('images/me_200x200.jpg') }}" class="img-fluid mx-auto d-block" alt="Shaun Sparg">
                             </div>
-                        </div>     
+                            
+                        </div>    
                     </div>
                     <div class="row">
                         <div class="social">
@@ -84,6 +85,7 @@
                             </ul>
                         </div>
                         <div class="col blob">
+                            <!-- <p class="play"><span class="play-icon"><i class="fas fa-play fa-2x"></i></span></p> -->
                             <p>I started messing around with code in around 2009 and was instantly intrigued by what one could potentially do. I then did a Internet and Web Design course at Unisa. Straight after that I did another course called Developing Web Applications with PHP. I played around after that for about a year just coding small things, I still remember finishing a little blog in Codeigniter and feeling so awesome, sounds silly I know! I then landed a 3 month job at Regis Management Services which I ended up at for 3 years! I did all their intranet stuff and quite a bit of mobile development, initially using PhoneGap but then I went native so I had more access to Androids API's. After a year and at my first performance review, I was promoted. I did most of my web development in Codeigniter as I was fast in it but then I read about Laravel and I have never looked back since.</p>
                             <p>So after 3 years I left Regis because I needed something fresh and I wanted to learn more. I got a job at Elemental Web Solutions. There I have worked on Wordpress (I won't lie, it's not my favourite) ,Zend, Laravel, Codeigniter and custom frameworks. Adding new and maintaining current client requirements.</p>
                         </div>
@@ -338,9 +340,8 @@
                     $('header .modal').empty();
                     $('body').removeClass('noscroll');
                 });
-            });
 
-            $('nav').on('click', 'li a', function(e){
+                $('nav').on('click', 'li a', function(e){
                 e.preventDefault();
                      $('nav').removeClass('open');            
                 var hash = $(this).attr('href');  
@@ -375,6 +376,35 @@
                     $('nav').addClass('open');              
                 }
             });
+
+            // var synth = window.speechSynthesis;
+            // var utterThis = new SpeechSynthesisUtterance('hi there');;
+            // function populateVoiceList() {
+            //     voices = synth.getVoices();
+            //     for (var i = 0; i < voices.length; i++) {
+            //         if (voices[i].name === 'Microsoft David Desktop - English (United States)') {
+            //             //utterThis.voice = voices[i];
+            //         }
+            //     }
+            //     console.log(voices);
+            // }
+
+            // populateVoiceList();
+            // if (speechSynthesis.onvoiceschanged !== undefined) {
+            //     speechSynthesis.onvoiceschanged = populateVoiceList;
+            // }
+
+            // $('.play-icon').on('click', function() {
+            //     if (synth.speaking) {
+            //         return;
+            //     }
+                
+            //     utterThis.pitch = 1;
+            //     utterThis.rate = 1;
+            //     synth.speak(utterThis);
+            // });
+
+        });
         </script>
     </body>
 </html>

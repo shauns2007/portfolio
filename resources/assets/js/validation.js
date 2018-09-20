@@ -1,6 +1,6 @@
 'use strict';
 
-class Validation {
+class Validation { //Really simple validation class
 	constructor(formEl, sub) {
 		this.formEl = formEl;
 		this.errors = [];

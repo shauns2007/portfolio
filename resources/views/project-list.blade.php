@@ -19,4 +19,3 @@
         <li class="no-content">No projects have been added yet</li>
     @endif
 </ul>
-{{ $projects->links() }}
