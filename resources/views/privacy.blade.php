@@ -39,7 +39,7 @@
     <body id="top">
         <header style="padding:10px;">
             <div class="header-container">
-                <a href="#menu" class="box-shadow-menu"></a> <div class="intro">
+                <div class="intro">
                     <h1 class="text-center text-uppercase">Privacy Policy</h1>
                 </div>            
             </div>
