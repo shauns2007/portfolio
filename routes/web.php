@@ -16,6 +16,8 @@ Route::get('/', 'Front\HomeController@index')->name('front.home');
 Route::post('/contact', 'Front\ContactController@create')->name('front.contact');
 Route::get('/projects/{project}', 'Front\ProjectController@view')->name('project.view');
 
+Route::get('/privacy', 'Front\PrivacyPolicyController@index')->name('privacy.view');
+
 Auth::routes();
 Route::prefix('admin')->middleware(['auth'])->group(function(){
 	Route::get('dashboard', 'HomeController@index')->name('home');
